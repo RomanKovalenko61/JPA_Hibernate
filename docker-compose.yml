@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: jpa-course-mysql
+    environment:
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: jpauser
+      MYSQL_PASSWORD: jpapwd
+      MYSQL_ROOT_PASSWORD: jpacourse
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
