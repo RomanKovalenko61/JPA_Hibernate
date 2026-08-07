@@ -1,7 +1,10 @@
 package com.rk;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JDBCHelper {
 
@@ -17,12 +20,18 @@ public class JDBCHelper {
             UPDATE students SET avg_grade = ? WHERE name = ?;
             """;
 
+    static final String SELECT_BY_AVG_GRADE_SQL = """
+            SELECT * FROM students WHERE avg_grade >= ?;
+            """;
+
     public static void main(String[] args) {
         Student student = new Student("Chanel", "King", 9.1);
         Student student1 = new Student("Roman", "Smith", 5.1);
         save(student);
         save(student1);
         update(student1, 9.0);
+
+        System.out.println(getByAvgGrade(8.5));
     }
 
     private static void save(Student student) {
@@ -48,5 +57,28 @@ public class JDBCHelper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static List<Student> getByAvgGrade(double avgGrade) {
+        try (var conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             var preparedStatement = conn.prepareStatement(SELECT_BY_AVG_GRADE_SQL)) {
+            preparedStatement.setDouble(1, avgGrade);
+
+            var resultSet = preparedStatement.executeQuery();
+            List<Student> students = new ArrayList<>();
+            while (resultSet.next()) {
+                students.add(build(resultSet));
+            }
+            return students;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static Student build(ResultSet resultSet) throws SQLException {
+        return new Student(resultSet.getLong("id"),
+                resultSet.getString("name"),
+                resultSet.getString("surname"),
+                resultSet.getDouble("avg_grade"));
     }
 }

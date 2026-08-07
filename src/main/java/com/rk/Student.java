@@ -15,6 +15,13 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
+    public Student(Long id, String name, String surname, Double avgGrade) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.avgGrade = avgGrade;
+    }
+
     public Long getId() {
         return id;
     }
