@@ -3,7 +3,7 @@ package com.rk;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JDBCInsert {
+public class JDBCHelper {
 
     static final String DB_URL = "jdbc:mysql://localhost:3306/test_db";
     static final String DB_USER = "jpauser";
@@ -15,7 +15,10 @@ public class JDBCInsert {
 
     public static void main(String[] args) {
         Student student = new Student("Chanel", "King", 9.1);
+        save(student);
+    }
 
+    private static void save(Student student) {
         try (var conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              var preparedStatement = conn.prepareStatement(INSERT_SQL);) {
             preparedStatement.setString(1, student.getName());
