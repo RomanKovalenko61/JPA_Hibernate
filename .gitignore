@@ -33,3 +33,4 @@ bin/
 /out/
 /.idea/
 /JPA_Hibernate.iml
+/target/
