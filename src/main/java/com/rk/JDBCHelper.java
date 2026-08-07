@@ -3,6 +3,7 @@ package com.rk;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class JDBCHelper {
         Student student = new Student("Chanel", "King", 9.1);
         Student student1 = new Student("Roman", "Smith", 5.1);
         save(student);
+        System.out.println("Student after save " + student);
         save(student1);
         update(student1, 9.0);
 
@@ -41,12 +43,24 @@ public class JDBCHelper {
 
     private static void save(Student student) {
         try (var conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-             var preparedStatement = conn.prepareStatement(INSERT_SQL)) {
+             var preparedStatement = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getSurname());
             preparedStatement.setDouble(3, student.getAvgGrade());
 
-            preparedStatement.executeUpdate();
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Failed to save student");
+            }
+
+            var generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                Long id = generatedKeys.getLong(1);
+                student.setId(id);
+                System.out.println("student set id: " + id);
+            } else {
+                throw new SQLException("Failed to set ID for student");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
