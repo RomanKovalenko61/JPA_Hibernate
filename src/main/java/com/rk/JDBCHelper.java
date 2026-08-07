@@ -24,6 +24,10 @@ public class JDBCHelper {
             SELECT * FROM students WHERE avg_grade >= ?;
             """;
 
+    static final String DELETE_BY_SURNAME_SQL = """
+                    DELETE FROM students WHERE surname = ?;
+            """;
+
     public static void main(String[] args) {
         Student student = new Student("Chanel", "King", 9.1);
         Student student1 = new Student("Roman", "Smith", 5.1);
@@ -32,6 +36,7 @@ public class JDBCHelper {
         update(student1, 9.0);
 
         System.out.println(getByAvgGrade(8.5));
+        System.out.println(deleteBySurname("Smith"));
     }
 
     private static void save(Student student) {
@@ -80,5 +85,16 @@ public class JDBCHelper {
                 resultSet.getString("name"),
                 resultSet.getString("surname"),
                 resultSet.getDouble("avg_grade"));
+    }
+
+    private static boolean deleteBySurname(String surname) {
+        try (var conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             var preparedStatement = conn.prepareStatement(DELETE_BY_SURNAME_SQL)) {
+            preparedStatement.setString(1, surname);
+
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
