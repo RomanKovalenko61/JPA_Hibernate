@@ -1,4 +1,4 @@
-package com.rk.jdbc_examples;
+package com.rk.jdbc_crud;
 
 import com.rk.entity.Student;
 
