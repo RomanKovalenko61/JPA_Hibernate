@@ -2,6 +2,8 @@ package com.rk.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "students")
 public class Student {
@@ -20,6 +22,9 @@ public class Student {
     @Column(name = "avg_grade")
     private Double avgGrade;
 
+    @Transient
+    private LocalDateTime createTime;
+
     public Student() {
     }
 
@@ -27,6 +32,7 @@ public class Student {
         this.name = name;
         this.surname = surname;
         this.avgGrade = avgGrade;
+        createTime = LocalDateTime.now();
     }
 
     public Student(Long id, String name, String surname, Double avgGrade) {
@@ -68,6 +74,14 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -75,6 +89,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
+                ", createTime=" + createTime +
                 '}';
     }
 }

@@ -12,7 +12,7 @@ public class PersistEx {
              EntityManager entityManager = factory.createEntityManager()) {
 
             EntityTransaction transaction = entityManager.getTransaction();
-            Student student = new Student("Leo", "Farrell", 8.4);
+            Student student = new Student("Eric", "Scott", 7.4);
 
             try {
                 transaction.begin();
