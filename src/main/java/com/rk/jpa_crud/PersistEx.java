@@ -13,7 +13,7 @@ public class PersistEx {
 
             EntityTransaction transaction = entityManager.getTransaction();
 //            Student student = new Student(null, "Scott", 7.4);
-            Student student = new Student("Isaac", "Sharp", 9.5);
+            Student student = new Student("Mathew", "Perry", 8.9);
 
             try {
                 transaction.begin();
