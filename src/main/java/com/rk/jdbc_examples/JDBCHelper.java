@@ -1,4 +1,6 @@
-package com.rk;
+package com.rk.jdbc_examples;
+
+import com.rk.entity.Student;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
