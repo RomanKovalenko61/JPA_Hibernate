@@ -13,7 +13,8 @@ public class Student {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    // null может проверить, но вот как проверить unique?
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     @Column(name = "surname")

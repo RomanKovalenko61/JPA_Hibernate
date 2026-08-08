@@ -12,13 +12,15 @@ public class PersistEx {
              EntityManager entityManager = factory.createEntityManager()) {
 
             EntityTransaction transaction = entityManager.getTransaction();
-            Student student = new Student("Eric", "Scott", 7.4);
+//            Student student = new Student(null, "Scott", 7.4);
+            Student student = new Student("Isaac", "Sharp", 9.5);
 
             try {
                 transaction.begin();
                 entityManager.persist(student);
                 transaction.commit(); // увидим id даже если не коммитим, но в БД не будет
             } catch (Exception ex) {
+                ex.printStackTrace();
                 transaction.rollback();
             }
 
