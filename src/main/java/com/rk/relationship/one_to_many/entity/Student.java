@@ -1,4 +1,4 @@
-package com.rk.relationship.one_two_many.entity;
+package com.rk.relationship.one_to_many.entity;
 
 import jakarta.persistence.*;
 
@@ -20,7 +20,7 @@ public class Student {
     @Column(name = "avg_grade")
     private Double avgGrade;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
     private University university;
 

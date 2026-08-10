@@ -1,13 +1,10 @@
-package com.rk.relationship.one_two_many;
+package com.rk.relationship.one_to_many;
 
-import com.rk.relationship.one_two_many.entity.Student;
-import com.rk.relationship.one_two_many.entity.University;
+import com.rk.relationship.one_to_many.entity.University;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-
-import java.sql.Date;
 
 public class OneToManyUni {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package com.rk.relationship.one_two_many;
+package com.rk.relationship.one_to_many;
 
-import com.rk.relationship.one_two_many.entity.University;
+import com.rk.relationship.one_to_many.entity.University;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

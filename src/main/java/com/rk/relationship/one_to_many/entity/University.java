@@ -1,4 +1,4 @@
-package com.rk.relationship.one_two_many.entity;
+package com.rk.relationship.one_to_many.entity;
 
 import jakarta.persistence.*;
 
@@ -21,8 +21,8 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university", cascade = CascadeType.PERSIST)
-    @OrderBy("avgGrade, name DESC") //@OrderBy("avgGrade DESC")
+    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
+//    @OrderBy("avgGrade, name DESC") //@OrderBy("avgGrade DESC")
     private List<Student> students = new ArrayList<>();
 
     public University() {
