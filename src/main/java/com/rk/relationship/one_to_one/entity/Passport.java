@@ -17,8 +17,9 @@ public class Passport {
     @Column(name = "height")
     private Integer height;
 
+    @Enumerated(EnumType.STRING) // без нее в БД enum представлен числом, проблема: добавили еще вариант числа в БД остались
     @Column(name = "eye_color")
-    private String eyeColor;
+    private EyeColor eyeColor;
 
     @OneToOne(mappedBy = "passport", cascade = {CascadeType.PERSIST, CascadeType.MERGE}) // field in another class
     private Student student;
@@ -26,7 +27,7 @@ public class Passport {
     public Passport() {
     }
 
-    public Passport(String email, Integer height, String eyeColor) {
+    public Passport(String email, Integer height, EyeColor eyeColor) {
         this.email = email;
         this.height = height;
         this.eyeColor = eyeColor;
@@ -56,11 +57,11 @@ public class Passport {
         this.height = height;
     }
 
-    public String getEyeColor() {
+    public EyeColor getEyeColor() {
         return eyeColor;
     }
 
-    public void setEyeColor(String eyeColor) {
+    public void setEyeColor(EyeColor eyeColor) {
         this.eyeColor = eyeColor;
     }
 
