@@ -1,11 +1,11 @@
-package com.rk.crud.entity;
+package com.rk.relationship.one_to_one.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-//@Entity
-//@Table(name = "test_students")
+@Entity
+@Table(name = "students")
 public class Student {
 
     @Id
@@ -13,19 +13,18 @@ public class Student {
     @Column(name = "id")
     private Long id;
 
-    // на ровне Java null может проверить, но вот как проверить unique?
-    // только если сам hibernate создает таблицу
-    @Column(name = "first_name", unique = true)
+    @Column(name = "name")
     private String name;
 
-//    @Column(name = "surname")
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "avg_grade", nullable = false)
+    @Column(name = "avg_grade")
     private Double avgGrade;
 
-    @Transient
-    private LocalDateTime createTime;
+    @OneToOne()
+    @JoinColumn(name = "passport_id")
+    private Passport passport;
 
     public Student() {
     }
@@ -34,7 +33,6 @@ public class Student {
         this.name = name;
         this.surname = surname;
         this.avgGrade = avgGrade;
-        createTime = LocalDateTime.now();
     }
 
     public Student(Long id, String name, String surname, Double avgGrade) {
@@ -76,12 +74,12 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
+    public Passport getPassport() {
+        return passport;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
+    public void setPassport(Passport passport) {
+        this.passport = passport;
     }
 
     @Override
@@ -91,7 +89,6 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
-                ", createTime=" + createTime +
                 '}';
     }
 }
