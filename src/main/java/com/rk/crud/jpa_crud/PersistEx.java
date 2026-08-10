@@ -1,30 +1,29 @@
-package com.rk.jpa_crud;
+package com.rk.crud.jpa_crud;
 
-import com.rk.entity.Student;
+import com.rk.crud.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class UpdateEx {
+public class PersistEx {
     public static void main(String[] args) {
         try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
              EntityManager entityManager = factory.createEntityManager()) {
 
             EntityTransaction transaction = entityManager.getTransaction();
-            Student student = null;
+//            Student student = new Student(null, "Scott", 7.4);
+            Student student = new Student("Mathew", "Perry", 8.9);
 
             try {
                 transaction.begin();
-                student = entityManager.find(Student.class, 1);
-                student.setAvgGrade(9.5);
-
-                transaction.commit();
-            } catch (Exception e) {
-                if (transaction.isActive()) {
-                    transaction.rollback();
-                }
+                entityManager.persist(student);
+                transaction.commit(); // увидим id даже если не коммитим, но в БД не будет
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                transaction.rollback();
             }
+
             System.out.println(student);
         }
     }

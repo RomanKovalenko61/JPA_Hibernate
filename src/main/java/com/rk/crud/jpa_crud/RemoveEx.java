@@ -1,6 +1,6 @@
-package com.rk.jpa_crud;
+package com.rk.crud.jpa_crud;
 
-import com.rk.entity.Student;
+import com.rk.crud.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

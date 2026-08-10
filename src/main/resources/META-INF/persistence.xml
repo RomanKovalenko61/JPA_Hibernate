@@ -11,7 +11,7 @@
             <property name="jakarta.persistence.jdbc.user"   value="jpauser" />
             <property name="jakarta.persistence.jdbc.password" value="jpapwd" />
 
-            <property name="hibernate.dialect"    value="org.hibernate.dialect.MySQLDialect" />
+<!--            <property name="hibernate.dialect"    value="org.hibernate.dialect.MySQLDialect" />-->
             <property name="hibernate.show_sql"   value="true" />
             <property name="hibernate.format_sql" value="true" />
 

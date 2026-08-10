@@ -1,6 +1,6 @@
-package com.rk.jdbc_crud;
+package com.rk.crud.jdbc_crud;
 
-import com.rk.entity.Student;
+import com.rk.crud.entity.Student;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;

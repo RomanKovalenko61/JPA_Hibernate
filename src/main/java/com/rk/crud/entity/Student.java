@@ -1,4 +1,4 @@
-package com.rk.entity;
+package com.rk.crud.entity;
 
 import jakarta.persistence.*;
 
