@@ -21,8 +21,7 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "university_id")
+    @OneToMany(mappedBy = "university", cascade = CascadeType.PERSIST)
     private List<Student> students = new ArrayList<>();
 
     public University() {
@@ -63,6 +62,7 @@ public class University {
 
     public void addStudentToUniversity(Student student) {
         students.add(student);
+        student.setUniversity(this);
     }
 
     public void setStudents(List<Student> students) {
