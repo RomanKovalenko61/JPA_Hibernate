@@ -16,7 +16,7 @@
             <property name="hibernate.format_sql" value="true" />
 
 <!--            create create-drop update validate-->
-<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
 
         </properties>
     </persistence-unit>

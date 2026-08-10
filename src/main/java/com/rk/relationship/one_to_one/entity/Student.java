@@ -23,7 +23,7 @@ public class Student {
     private Double avgGrade;
 
     @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "passport_id") // без аннотации ищет fieldName_id
+    @JoinColumn(name = "passport_id") // без аннотации ищет fieldName_id
     private Passport passport;
 
     public Student() {
