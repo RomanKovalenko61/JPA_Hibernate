@@ -26,7 +26,7 @@ public class Teacher {
     @Column(name = "is_professor")
     private boolean isProfessor;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "teacher_uni",
             joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "university_id"))
