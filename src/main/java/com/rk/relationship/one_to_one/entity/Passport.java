@@ -2,8 +2,8 @@ package com.rk.relationship.one_to_one.entity;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "passports")
+//@Entity
+//@Table(name = "passports")
 public class Passport {
 
     @Id

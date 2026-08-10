@@ -1,11 +1,9 @@
-package com.rk.relationship.one_to_one.entity;
+package com.rk.relationship.one_two_many.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
-//@Entity
-//@Table(name = "students")
+@Entity
+@Table(name = "students")
 public class Student {
 
     @Id
@@ -22,9 +20,6 @@ public class Student {
     @Column(name = "avg_grade")
     private Double avgGrade;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passport_id") // без аннотации ищет fieldName_id
-    private Passport passport;
 
     public Student() {
     }
@@ -72,14 +67,6 @@ public class Student {
 
     public void setAvgGrade(Double avgGrade) {
         this.avgGrade = avgGrade;
-    }
-
-    public Passport getPassport() {
-        return passport;
-    }
-
-    public void setPassport(Passport passport) {
-        this.passport = passport;
     }
 
     @Override
