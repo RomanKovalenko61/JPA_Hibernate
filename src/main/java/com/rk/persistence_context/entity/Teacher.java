@@ -2,7 +2,7 @@ package com.rk.persistence_context.entity;
 
 import jakarta.persistence.*;
 
-@Cacheable
+//@Cacheable
 @Entity
 @Table(name = "teachers")
 public class Teacher {
@@ -33,6 +33,48 @@ public class Teacher {
         this.subject = subject;
         this.isProfessor = isProfessor;
     }
+
+    @PrePersist
+    void prePersist() {
+        System.out.println("@PrePersist");
+    }
+
+    @PostPersist
+    void postPersist() {
+        System.out.println("@PostPersist");
+    }
+
+    @PreUpdate
+    void preUpdate() {
+        System.out.println("@PreUpdate");
+    }
+
+    @PostUpdate
+    void postUpdate() {
+        System.out.println("@PostUpdate");
+    }
+
+    @PreRemove
+    void preRemove() {
+        System.out.println("@PreRemove");
+    }
+
+    @PostRemove
+    void postRemove() {
+        System.out.println("@PostRemove");
+    }
+
+    @PostLoad
+    void postLoad() {
+        System.out.println("@PostLoad");
+    }
+
+    // можно объединять, но тогда не использовать их отдельно
+//    @PostLoad
+//    @PostPersist
+//    void postLoadAndPostPersist() {
+//        System.out.println("@PostLoad   @PostPersist");
+//    }
 
     public Long getId() {
         return id;
