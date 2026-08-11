@@ -1,12 +1,9 @@
-package com.rk.relationship.many_to_many.entity;
+package com.rk.persistence_context.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-//@Entity
-//@Table(name = "teachers")
+@Entity
+@Table(name = "teachers")
 public class Teacher {
 
     @Id
@@ -26,12 +23,6 @@ public class Teacher {
     @Column(name = "is_professor")
     private boolean isProfessor;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "teacher_uni",
-            joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name = "university_id"))
-    private List<University> universities = new ArrayList<>();
-
     public Teacher() {
     }
 
@@ -40,10 +31,6 @@ public class Teacher {
         this.surname = surname;
         this.subject = subject;
         this.isProfessor = isProfessor;
-    }
-
-    public void addUniversityToTeacher(University university) {
-        universities.add(university);
     }
 
     public Long getId() {
@@ -84,14 +71,6 @@ public class Teacher {
 
     public void setProfessor(boolean professor) {
         isProfessor = professor;
-    }
-
-    public List<University> getUniversities() {
-        return universities;
-    }
-
-    public void setUniversities(List<University> universities) {
-        this.universities = universities;
     }
 
     @Override
