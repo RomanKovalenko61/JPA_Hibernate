@@ -18,12 +18,13 @@
             <!--            create create-drop update validate-->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
 
-            <property name="hibernate.cache.region.factory_class"
-                      value="org.hibernate.cache.jcache.JCacheRegionFactory"/>
-            <property name="javax.cache.provider"
-                      value="org.ehcache.jsr107.EhcacheCachingProvider"/>
-            <property name="javax.persistence.sharedCache.mode"
-                      value="ENABLE_SELECTIVE"/>
+            <!--            Second Level Cache-->
+            <!--            <property name="hibernate.cache.region.factory_class"-->
+            <!--                      value="org.hibernate.cache.jcache.JCacheRegionFactory"/>-->
+            <!--            <property name="javax.cache.provider"-->
+            <!--                      value="org.ehcache.jsr107.EhcacheCachingProvider"/>-->
+            <!--            <property name="javax.persistence.sharedCache.mode"-->
+            <!--                      value="ENABLE_SELECTIVE"/>-->
 
         </properties>
     </persistence-unit>
