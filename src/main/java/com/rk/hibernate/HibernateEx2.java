@@ -23,7 +23,15 @@ public class HibernateEx2 {
                 // First level cache --> один запрос в БД, потом студент в кеше
                 Student student1 = session.find(Student.class, 2);
                 Student student2 = session.find(Student.class, 2);
-                
+
+                // Proxy объект, знает только id, если нужны другие поля тогда только запрос в БД
+                // Используется для установки связей (?) и каскадных операций
+                // В дебаге виден select т.к. Idea показывает состояние объекта
+                // После коммита можем получить LazyInitializationException если не загрузили поля
+                Student studentProxy = session.getReference(Student.class, 1);
+                System.out.println(studentProxy.getId()); // Id знаем, пока не идем в БД
+                System.out.println(studentProxy); // Здесь только реальный запрос в БД, запрос других полей
+
                 Student studentNotExists = session.find(Student.class, 100);
                 System.out.println(studentNotExists);
 
