@@ -2,6 +2,9 @@ package com.rk.advanced_mapping.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -20,21 +23,19 @@ public class Employee {
     @Column(name = "experience")
     private Double experience;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "country", column = @Column(name = "emp_country")),
-            @AttributeOverride(name = "city", column = @Column(name = "emp_city"))
-    })
-    private Address address;
+    @ElementCollection
+    @CollectionTable(name = "emp_friends", joinColumns = @JoinColumn(name = "emp_id"))
+    @Column(name = "friend_name")
+    List<String> friends = new ArrayList<>();
 
     public Employee() {
     }
 
-    public Employee(String name, Integer salary, Double experience, Address address) {
+    public Employee(String name, Integer salary, Double experience, List<String> friends) {
         this.name = name;
         this.salary = salary;
         this.experience = experience;
-        this.address = address;
+        this.friends = friends;
     }
 
     public Long getId() {
@@ -69,12 +70,12 @@ public class Employee {
         this.experience = experience;
     }
 
-    public Address getAddress() {
-        return address;
+    public List<String> getFriends() {
+        return friends;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setFriends(List<String> friends) {
+        this.friends = friends;
     }
 
     @Override
@@ -84,7 +85,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 ", experience=" + experience +
-                ", address=" + address +
+                ", friends=" + friends +
                 '}';
     }
 }
