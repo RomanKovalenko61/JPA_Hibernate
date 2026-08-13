@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateEx {
+public class HibernateEx2 {
     public static void main(String[] args) {
         try (SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -17,15 +17,15 @@ public class HibernateEx {
             Transaction transaction = session.getTransaction();
 
             try {
-//                Student student = new Student("Chanel", "King", 9.1);
-                Student student = new Student("Leo", "Farrell", 8.4);
-
                 transaction.begin();
 
-//                System.out.println(session.contains(student));
-                session.persist(student);
-//                System.out.println(session.contains(student));
-                System.out.println(student);
+                // Exception!!! .HibernateException: Calling method 'find' is not valid without an active transaction
+                // First level cache --> один запрос в БД, потом студент в кеше
+                Student student1 = session.find(Student.class, 2);
+                Student student2 = session.find(Student.class, 2);
+                
+                Student studentNotExists = session.find(Student.class, 100);
+                System.out.println(studentNotExists);
 
                 transaction.commit();
             } catch (Exception e) {
