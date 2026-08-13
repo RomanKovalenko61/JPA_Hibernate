@@ -25,13 +25,17 @@ public class Employee {
 
     @ElementCollection
     @CollectionTable(name = "emp_friends", joinColumns = @JoinColumn(name = "emp_id"))
-    @Column(name = "friend_name")
-    List<String> friends = new ArrayList<>();
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "emp_name")),
+            @AttributeOverride(name = "surname", column = @Column(name = "emp_surname")),
+            @AttributeOverride(name = "age", column = @Column(name = "emp_age"))
+    })
+    List<Friend> friends = new ArrayList<>();
 
     public Employee() {
     }
 
-    public Employee(String name, Integer salary, Double experience, List<String> friends) {
+    public Employee(String name, Integer salary, Double experience, List<Friend> friends) {
         this.name = name;
         this.salary = salary;
         this.experience = experience;
@@ -70,11 +74,11 @@ public class Employee {
         this.experience = experience;
     }
 
-    public List<String> getFriends() {
+    public List<Friend> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<String> friends) {
+    public void setFriends(List<Friend> friends) {
         this.friends = friends;
     }
 
