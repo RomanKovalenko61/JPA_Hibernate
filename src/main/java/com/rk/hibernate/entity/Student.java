@@ -1,9 +1,10 @@
-package com.rk.criteria_query.entity;
+package com.rk.hibernate.entity;
+
 
 import jakarta.persistence.*;
 
-//@Entity
-//@Table(name = "students")
+@Entity
+@Table(name = "students")
 public class Student {
 
     @Id
@@ -19,10 +20,6 @@ public class Student {
 
     @Column(name = "avg_grade")
     private Double avgGrade;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "university_id")
-    private University university;
 
     public Student() {
     }
@@ -70,14 +67,6 @@ public class Student {
 
     public void setAvgGrade(Double avgGrade) {
         this.avgGrade = avgGrade;
-    }
-
-    public University getUniversity() {
-        return university;
-    }
-
-    public void setUniversity(University university) {
-        this.university = university;
     }
 
     @Override
