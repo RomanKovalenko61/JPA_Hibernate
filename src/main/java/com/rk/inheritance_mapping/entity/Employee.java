@@ -3,14 +3,14 @@ package com.rk.inheritance_mapping.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employees")
-@Inheritance(strategy = InheritanceType.JOINED) // default InheritanceType.SINGLE_TABLE
+//@Table(name = "employees") // для joined strategy
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // default InheritanceType.SINGLE_TABLE
 //@DiscriminatorColumn(name = "emp_type") // для SINGLE_TABLE имя столбца с названием класса сущности
 public abstract class Employee {
 
     @Column(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE) // TABLE в случае сохр наследников в отдельные таблицы (TABLE_PER_CLASS)
     private Long id;
 
     @Column(name = "name")

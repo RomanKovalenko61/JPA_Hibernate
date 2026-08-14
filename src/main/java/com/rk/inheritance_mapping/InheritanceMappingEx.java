@@ -22,17 +22,17 @@ public class InheritanceMappingEx {
 
 //                Teacher teacher = new Teacher("Rio", 2000, 3d, "Biology", false);
 //                Driver driver = new Driver("Michael", 2800, 28d, 'C', "Mercedes");
-//
+
 //                entityManager.persist(teacher);
 //                entityManager.persist(driver);
 
-                Query query = entityManager.createQuery("SELECT emp FROM Employee emp");
-                List<Employee> employees = query.getResultList();
-                System.out.println(employees);
+//                Query query = entityManager.createQuery("SELECT emp FROM Employee emp");
+//                List<Employee> employees = query.getResultList();
+//                System.out.println(employees);
 
-                Query query1 = entityManager.createQuery("SELECT dr FROM Driver dr");
-                List<Driver> drivers = query1.getResultList();
-                System.out.println(drivers);
+//                Query query1 = entityManager.createQuery("SELECT dr FROM Driver dr");
+//                List<Driver> drivers = query1.getResultList();
+//                System.out.println(drivers);
 
                 transaction.commit();
             } catch (Exception e) {
