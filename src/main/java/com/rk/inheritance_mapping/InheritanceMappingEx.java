@@ -26,13 +26,14 @@ public class InheritanceMappingEx {
 //                entityManager.persist(teacher);
 //                entityManager.persist(driver);
 
+                // Запрос не работает при @MappedSuperclass над Employee
 //                Query query = entityManager.createQuery("SELECT emp FROM Employee emp");
 //                List<Employee> employees = query.getResultList();
 //                System.out.println(employees);
 
-//                Query query1 = entityManager.createQuery("SELECT dr FROM Driver dr");
-//                List<Driver> drivers = query1.getResultList();
-//                System.out.println(drivers);
+                Query query1 = entityManager.createQuery("SELECT dr FROM Driver dr");
+                List<Driver> drivers = query1.getResultList();
+                System.out.println(drivers);
 
                 transaction.commit();
             } catch (Exception e) {

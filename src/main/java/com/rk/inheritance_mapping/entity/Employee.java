@@ -2,15 +2,17 @@ package com.rk.inheritance_mapping.entity;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 //@Table(name = "employees") // для joined strategy
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // default InheritanceType.SINGLE_TABLE
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // default InheritanceType.SINGLE_TABLE
 //@DiscriminatorColumn(name = "emp_type") // для SINGLE_TABLE имя столбца с названием класса сущности
+
+@MappedSuperclass // @Entity убрать они противоречат друг другу
 public abstract class Employee {
 
     @Column(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE) // TABLE в случае сохр наследников в отдельные таблицы (TABLE_PER_CLASS)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // TABLE в случае сохр наследников в отдельные таблицы (TABLE_PER_CLASS)
     private Long id;
 
     @Column(name = "name")
