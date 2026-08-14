@@ -4,8 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "teachers")
+//@Entity
+//@Table(name = "teachers")
 public class Teacher extends Employee {
 
     @Column(name = "subject")
