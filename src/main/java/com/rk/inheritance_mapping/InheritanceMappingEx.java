@@ -17,8 +17,11 @@ public class InheritanceMappingEx {
             try {
                 transaction.begin();
 
-                Teacher teacher = new Teacher("Alessandro", 2500, 8d, "CS", true);
-                Driver driver = new Driver("Peter", 2300, 15d, 'B', "BMW");
+//                Teacher teacher = new Teacher("Alessandro", 2500, 8d, "CS", true);
+//                Driver driver = new Driver("Peter", 2300, 15d, 'B', "BMW");
+
+//                Teacher teacher = new Teacher("Rio", 2000, 3d, "Biology", false);
+//                Driver driver = new Driver("Michael", 2800, 28d, 'C', "Mercedes");
 //
 //                entityManager.persist(teacher);
 //                entityManager.persist(driver);

@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employees")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // default InheritanceType.SINGLE_TABLE
-@DiscriminatorColumn(name = "emp_type")
+@Inheritance(strategy = InheritanceType.JOINED) // default InheritanceType.SINGLE_TABLE
+//@DiscriminatorColumn(name = "emp_type") // для SINGLE_TABLE имя столбца с названием класса сущности
 public abstract class Employee {
 
     @Column(name = "id")
