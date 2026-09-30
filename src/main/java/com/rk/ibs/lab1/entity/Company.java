@@ -7,7 +7,7 @@ import jakarta.persistence.*;
         name = "company_detail",
         pkJoinColumns = @PrimaryKeyJoinColumn(name = "COMPANY_ID", referencedColumnName = "ID")
 )
-@Entity
+//@Entity
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
