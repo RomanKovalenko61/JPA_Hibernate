@@ -1,0 +1,25 @@
+package com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity;
+
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity(name = "customer_single_table_person")
+@DiscriminatorValue("Customer")
+public class Customer extends Person {
+    private double discount;
+
+    public Customer() {
+    }
+
+    public Customer(double discount) {
+        this.discount = discount;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+}
