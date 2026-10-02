@@ -2,7 +2,7 @@ package com.rk.ibs.lab4.TABLE_PER_SUBCLASS.entity;
 
 import jakarta.persistence.*;
 
-@Entity(name = "person_joined")
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "person_joined")
 public abstract class Person {

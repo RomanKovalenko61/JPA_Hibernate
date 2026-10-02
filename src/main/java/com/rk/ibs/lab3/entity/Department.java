@@ -3,7 +3,7 @@ package com.rk.ibs.lab3.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "departments")
 public class Department {
     @Id

@@ -3,7 +3,7 @@ package com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
-@Entity(name = "executive_single_table_person")
+@Entity
 @DiscriminatorValue("Executive")
 public class Executive extends Employee {
     private double bonus;

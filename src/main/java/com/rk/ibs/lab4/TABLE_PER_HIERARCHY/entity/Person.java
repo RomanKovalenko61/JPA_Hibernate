@@ -3,7 +3,7 @@ package com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity;
 import jakarta.persistence.*;
 
 
-@Entity(name = "person_single_table")
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "person_single_table")

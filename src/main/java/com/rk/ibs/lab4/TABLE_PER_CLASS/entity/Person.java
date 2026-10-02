@@ -2,7 +2,7 @@ package com.rk.ibs.lab4.TABLE_PER_CLASS.entity;
 
 import jakarta.persistence.*;
 
-@Entity(name = "person_per_class")
+@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Person {
     @Id

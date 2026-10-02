@@ -4,7 +4,7 @@ package com.rk.ibs.lab4.TABLE_PER_CLASS.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity(name = "custoner_per_class")
+@Entity
 @Table(name = "custoner_per_class")
 public class Customer extends Person {
     private double discount;

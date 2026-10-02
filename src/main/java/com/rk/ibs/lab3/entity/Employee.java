@@ -4,7 +4,7 @@ import com.rk.ibs.lab3.entity.embeddables.Project;
 import jakarta.persistence.*;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "employees")
 public class Employee {
     @Id

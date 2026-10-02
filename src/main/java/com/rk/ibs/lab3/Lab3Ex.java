@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Lab3Ex {
     public static void main(String[] args) {
-        try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
+        try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("lab3");
              EntityManager entityManager = factory.createEntityManager()) {
 
             EntityTransaction transaction = entityManager.getTransaction();

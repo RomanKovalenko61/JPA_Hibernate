@@ -11,13 +11,14 @@ import jakarta.persistence.Persistence;
 
 public class Launcher {
     public static void main(String[] args) {
-        try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
+        try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("lab4.TABLE_PER_CLASS");
              EntityManager entityManager = factory.createEntityManager()) {
 
             EntityTransaction transaction = entityManager.getTransaction();
             try {
                 transaction.begin();
 
+                // Generator ID общий для всех, сущности в своих таблицах
                 Customer customer = new Customer(0.2f);
                 Employee employee = new Employee(2000f);
                 Executive executive = new Executive(1500f, 0.15f);

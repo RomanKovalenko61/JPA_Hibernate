@@ -3,7 +3,7 @@ package com.rk.ibs.lab4.TABLE_PER_CLASS.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity(name="employee_per_class")
+@Entity
 @Table(name="employee_per_class")
 public class Employee extends Person {
     private double salary;

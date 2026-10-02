@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 
 public class Lab1Ex {
     public static void main(String[] args) {
-        try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
+        try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("lab1");
              EntityManager entityManager = factory.createEntityManager()) {
 
             EntityTransaction transaction = entityManager.getTransaction();

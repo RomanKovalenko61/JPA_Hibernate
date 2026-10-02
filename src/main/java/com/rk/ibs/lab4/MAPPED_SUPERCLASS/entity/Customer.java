@@ -4,7 +4,7 @@ package com.rk.ibs.lab4.MAPPED_SUPERCLASS.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity(name = "customer_mapped_superclass")
+@Entity
 @Table(name = "customer_mapped_superclass")
 public class Customer extends Person {
     private double discount;

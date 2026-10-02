@@ -29,6 +29,143 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="lab1">
+        <class>com.rk.ibs.lab1.entity.Company</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="lab2">
+        <class>com.rk.ibs.lab2.entity.Department_1</class>
+        <class>com.rk.ibs.lab2.entity.Department_2</class>
+        <class>com.rk.ibs.lab2.entity.Department_3</class>
+        <class>com.rk.ibs.lab2.entity.DepartmentKey</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="lab3">
+        <class>com.rk.ibs.lab3.entity.Company</class>
+        <class>com.rk.ibs.lab3.entity.Department</class>
+        <class>com.rk.ibs.lab3.entity.Employee</class>
+        <class>com.rk.ibs.lab3.entity.embeddables.Project</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="lab4.MAPPED_SUPERCLASS">
+        <class>com.rk.ibs.lab4.MAPPED_SUPERCLASS.entity.Customer</class>
+        <class>com.rk.ibs.lab4.MAPPED_SUPERCLASS.entity.Employee</class>
+        <class>com.rk.ibs.lab4.MAPPED_SUPERCLASS.entity.Person</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="lab4.TABLE_PER_CLASS">
+        <class>com.rk.ibs.lab4.TABLE_PER_CLASS.entity.Customer</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_CLASS.entity.Employee</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_CLASS.entity.Executive</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_CLASS.entity.Person</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="lab4.TABLE_HIERARCHY">
+        <class>com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity.Customer</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity.Employee</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity.Executive</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_HIERARCHY.entity.Person</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="lab4.TABLE_PER_SUBCLASS">
+        <class>com.rk.ibs.lab4.TABLE_PER_SUBCLASS.entity.Customer</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_SUBCLASS.entity.Employee</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_SUBCLASS.entity.Executive</class>
+        <class>com.rk.ibs.lab4.TABLE_PER_SUBCLASS.entity.Person</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapwd"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="lab5">
         <class>com.rk.ibs.lab5.entity.Company</class>
         <class>com.rk.ibs.lab5.entity.Department</class>

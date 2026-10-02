@@ -3,7 +3,7 @@ package com.rk.ibs.lab4.MAPPED_SUPERCLASS.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity(name="employee_mapped_superclass")
+@Entity
 @Table(name="employee_mapped_superclass")
 public class Employee extends Person {
     private double salary;

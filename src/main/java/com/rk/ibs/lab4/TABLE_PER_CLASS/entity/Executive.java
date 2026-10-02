@@ -3,7 +3,7 @@ package com.rk.ibs.lab4.TABLE_PER_CLASS.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity(name = "executive_per_class")
+@Entity
 @Table(name = "executive_per_class")
 public class Executive extends Employee {
     private double bonus;
